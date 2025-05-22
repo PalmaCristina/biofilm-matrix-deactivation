@@ -1,0 +1,25 @@
+function dx=SinIR(t,x,apd,gr)
+vi=0.0291;vr=0.0525;vl=0.0461;vi0=0;vl0=0;
+kdr= 722.6400;kdi=722.6400;kudr=247.34;kudi=169.53;
+kb1= 770.8160;kb2=770.8160; Ki=0.01; Kl=9.4238e-04;kdlr=0.9940;
+kdeg_pro=gr+0.2; kdegl=gr+0.8;
+k_tran_I=400; k_tran_R=200; k_deg=8.3;
+vt=0.0125;Kt=0.0021;
+I=x(1);
+IR=x(2);
+Id=x(3);
+L=x(4);
+LR=x(5);
+R=x(6);
+Rt=x(7);
+T=x(8);
+dx(1)=(vi0+vi*(apd)/(Ki+apd))*fglobal(gr,0.8)*k_tran_I/k_deg*1-kdi*I*I*2+kudi*Id*2-kdeg_pro*I*1;
+dx(2)=kb1*Id*R*2-kdeg_pro*IR*1;
+dx(3)=-kb1*Id*R*1+kdi*I*I*1-kudi*Id*1-kdeg_pro*Id*1;
+dx(4)=(vl0+vl*Kl/(Rt+Kl))*fglobal(gr,0.3)*k_tran_R/k_deg*1-kb2*L*R*1+kdlr*LR*1-kdegl*L*1;
+dx(5)=kb2*L*R*1-kdlr*LR*1-kdeg_pro*LR*1;
+dx(6)=vr*fglobal(gr,0.8)*k_tran_R/k_deg*1-kb1*Id*R*1-kdr*R*R*2+kudr*Rt*2-kb2*L*R*1+kdlr*LR*1-kdeg_pro*R*1;
+dx(7)=kdr*R*R*1-kudr*Rt*1-kdeg_pro*Rt*1;
+dx(8)=vt*Kt/(Rt+Kt)*fglobal(gr,0.4)*k_tran_R/k_deg*1-1*T*1;
+dx=dx';
+end
