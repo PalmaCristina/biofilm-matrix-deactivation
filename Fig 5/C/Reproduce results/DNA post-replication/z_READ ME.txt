@@ -1,0 +1,2 @@
+Run 'Bifurcation_amplitude_03' to reproduce results.
+The Cell cycle deactivation threshold will be printed in the command window.

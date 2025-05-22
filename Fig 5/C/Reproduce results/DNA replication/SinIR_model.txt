@@ -1,0 +1,40 @@
+function dx=SinIR(t,x,kgrowths1,Ap,ts)
+parameters:
+
+apd=interp1(ts.',Ap.',t);
+gr=interp1(ts.',kgrowths1.',t);
+
+vi=0.0291;vr=0.0525;vl=0.0461;vi0=0;vl0=0;
+kdr= 722.6400;kdi=722.6400;kudr=247.34;kudi=169.53;
+kb1= 770.8160;kb2=770.8160; Ki=0.01; Kl=9.4238e-04;kdlr=0.9940;
+kdeg_pro=gr+0.2; kdegl=gr+0.8; 
+k_tran_I=400; k_tran_R=200; k_deg=8.3;
+
+
+vt=0.0125;Kt=0.0021;
+
+reactions:
+->I     |   (vi0+vi*(apd)/(Ki+apd))*fglobal(gr,0.8)*k_tran_I/k_deg;
+->R		|	vr*fglobal(gr,0.8)*k_tran_R/k_deg;
+->L     |   (vl0+ vl*Kl/(Rt+Kl))*fglobal(gr,0.3)*k_tran_R/k_deg;
+
+->T     |   vt*Kt/(Rt+Kt)*fglobal(gr,0.4)*k_tran_R/k_deg;
+Id+R->2*IR | kb1*Id*R
+
+2*R -> Rt | kdr*R*R
+Rt -> 2*R| kudr*Rt
+
+2*I -> Id | kdi*I*I
+Id  ->2*I| kudi*Id
+
+L+R->LR | kb2*L*R
+LR-> L+R  | kdlr*LR
+I->|kdeg_pro*I
+Id->|kdeg_pro*Id
+R->|kdeg_pro*R
+Rt->|kdeg_pro*Rt
+IR->|kdeg_pro*IR
+LR->|kdeg_pro*LR
+L->|kdegl*L
+T->|1*T
+##############
