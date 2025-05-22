@@ -1,1 +1,0 @@
-To reproduce Figure 4B run 'Bifurcation_amplitude_script'. To reproduce T=1,3,6 change the frequency in line 5 of the script.

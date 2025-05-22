@@ -1,1 +1,0 @@
-To reproduce Figure 4A run 'Bistability_CP_spo0A' script
