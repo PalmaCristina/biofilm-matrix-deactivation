@@ -1,0 +1,42 @@
+
+
+        %     gi0 = addspecies(compartment, 'gi0', 1);
+                set (gi0, 'InitialAmount',x_ss(1,1));
+        %     gi = addspecies(compartment, 'gi', 0);
+                set (gi, 'InitialAmount',x_ss(1,2));
+        %     apd = addspecies(compartment, 'apd', 300); %Not changed here
+                set (apd, 'InitialAmount',x_ss(1,3));
+        %     gslr0 = addspecies(compartment, 'gslr0', 0);
+                set (gslr0, 'InitialAmount',x_ss(1,4));
+        %     gslr = addspecies(compartment, 'gslr', 1);
+                set (gslr, 'InitialAmount',x_ss(1,5));
+        %     Rt = addspecies(compartment, 'Rt', 0);
+                set (Rt, 'InitialAmount',x_ss(1,6));
+        %     gtap0 = addspecies(compartment, 'gtap0', 0);
+                set (gtap0, 'InitialAmount',x_ss(1,7));
+        %     gtap = addspecies(compartment, 'gtap', 1);
+                set (gtap, 'InitialAmount',x_ss(1,8));
+        %     gr = addspecies(compartment, 'gr', 1);
+                set (gr, 'InitialAmount',x_ss(1,9));
+        %     r = addspecies(compartment, 'r', 0);
+                set (r, 'InitialAmount',x_ss(1,10));
+        %     i = addspecies(compartment, 'i', 0);
+                set (i, 'InitialAmount',x_ss(1,11));
+        %     I = addspecies(compartment, 'I', 1000);
+                set (I, 'InitialAmount',x_ss(1,12));
+        %     R = addspecies(compartment, 'R', 0);
+                set (R, 'InitialAmount',x_ss(1,13));
+        %     l = addspecies(compartment, 'l', 0);
+                set (l, 'InitialAmount',x_ss(1,14));
+        %     L = addspecies(compartment, 'L', 0);
+                set (L, 'InitialAmount',x_ss(1,15));
+        %     t = addspecies(compartment, 't', 0);
+                set (t, 'InitialAmount',x_ss(1,16));
+        %     T = addspecies(compartment, 'T', 0);
+                 set (T, 'InitialAmount',x_ss(1,17));
+        %     Id = addspecies(compartment, 'Id', 1000);
+                 set (Id, 'InitialAmount',x_ss(1,18));
+        %     IR = addspecies(compartment, 'IR', 0);
+                 set (IR, 'InitialAmount',x_ss(1,19));
+        %     LR = addspecies(compartment, 'LR', 0);
+                 set (LR, 'InitialAmount',x_ss(1,20));
